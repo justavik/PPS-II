@@ -1,0 +1,11 @@
+x = input()
+l = 1
+for i in range(len(x)):
+	for j in range(i, len(x), 1):
+		flag = 1
+		for k in range((j - i + 1) // 2):
+			if (x[i + k] != x[j - k]):
+				flag = 0
+		if (flag != 0 and	(j - i + 1) > l):
+			l = j - i + 1
+print(l)
