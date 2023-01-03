@@ -1,0 +1,13 @@
+l = eval(input())
+x = 0
+for i in l:
+    if type(i) == list:
+        for j in i:
+            l.append(j)
+        l.remove(i)
+    else:
+        x += 1
+if len(l) == x:
+    print("cannot unpack")
+else:
+    print(len(l))
