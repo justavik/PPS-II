@@ -1,0 +1,15 @@
+#WORKS WELL IN SPYDER BUT CANNOT MAKE IT RUN ON MOODLE. When reading the CSV, copy pasta your own file location to the csv instead of mine
+import pandas as pd
+lin = pd.read_csv(r"C:\Users\LENOVO\Downloads\diabetes.csv")
+n = 0
+for i in lin:
+    if i is None:
+        n += 1
+out = open('Output.txt', 'w')
+out.write(str(len(lin)))
+out.write("\n")
+out.write(str(n))
+out.close()
+out = open('Output.txt', 'r')
+print(out.read())
+out.close()
