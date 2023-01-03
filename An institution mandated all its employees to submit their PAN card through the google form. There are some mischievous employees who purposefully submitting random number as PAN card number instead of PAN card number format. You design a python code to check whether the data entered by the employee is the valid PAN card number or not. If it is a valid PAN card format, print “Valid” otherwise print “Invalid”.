@@ -1,0 +1,13 @@
+x = input()
+a, s, ac, u = 0, 0, 0, 0
+if len(x) == 10:
+    if x[:5].isalpha() and x[5:9].isdigit() and  x[-1].isalpha():
+        a = 1
+for i in x:
+    if i in "@_!#$%^&*()<>?/\|}{~:":
+        s += 1
+    if i.isalpha():
+        ac += 1
+        if i.isupper():
+            u += 1
+print("Valid") if (a == 1 and s == 0 and ac == u) else print("Invalid")
