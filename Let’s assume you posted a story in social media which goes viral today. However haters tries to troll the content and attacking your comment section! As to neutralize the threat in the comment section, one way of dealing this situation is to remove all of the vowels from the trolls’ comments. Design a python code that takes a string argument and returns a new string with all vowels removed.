@@ -1,0 +1,5 @@
+x = input()
+for i in x:
+   if i in "aeiouAEIOU":
+       x = x.replace(i, "")
+print(x)
