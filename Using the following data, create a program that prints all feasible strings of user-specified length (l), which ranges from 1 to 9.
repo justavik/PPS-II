@@ -1,0 +1,26 @@
+import itertools
+p = input()
+p = p[1:]
+p = p.split(" ")
+d = {}
+n = 1
+for i in p:
+    d[i] = n
+    n += 1
+nd = dict([(value, key) for key, value in d.items()])
+s = int(input())
+l = int(input())
+lst, nlst = [], []
+for comb in itertools.combinations(list(d.values()), l):
+    lst.append(comb)
+for i in lst:
+    ss = 0
+    for j in i:
+        ss += j
+    if ss == s:
+        nlst.append(i)
+for i in nlst:
+    flst = []
+    for j in i:
+        flst.append(nd[j])
+    print("".join(flst))
