@@ -1,0 +1,22 @@
+import re
+p1=input()
+p2=input()
+for i in p1:
+   if i not in "agct":
+       print('MISMATCH')
+for i in p2:
+   if i not in "agct":
+       print('MISMATCH')
+l1=[]
+l2=[]
+x=re.compile('(agct)+')
+m1=x.finditer(p1)
+m2=x.finditer(p2)
+for m in m1:
+   l1.append(m.end()-m.start())
+for m in m2:
+   l2.append(m.end()-m.start())
+if max(l1)==max(l2):
+   print('MATCH')
+else:
+   print('MISMATCH')
