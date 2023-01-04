@@ -8,4 +8,4 @@ for i in range(len(x)):
 				flag = 0
 		if (flag != 0 and	(j - i + 1) > l):
 			l = j - i + 1
-print(l)
+print(len(x)) if x[::-1] == x else print(l)
