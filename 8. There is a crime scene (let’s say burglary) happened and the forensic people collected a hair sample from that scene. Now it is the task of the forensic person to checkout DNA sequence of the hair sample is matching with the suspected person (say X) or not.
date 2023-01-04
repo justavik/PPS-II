@@ -1,22 +1,27 @@
-import re
-p1=input()
-p2=input()
-for i in p1:
-   if i not in "agct":
-       print('MISMATCH')
-for i in p2:
-   if i not in "agct":
-       print('MISMATCH')
-l1=[]
-l2=[]
-x=re.compile('(agct)+')
-m1=x.finditer(p1)
-m2=x.finditer(p2)
-for m in m1:
-   l1.append(m.end()-m.start())
-for m in m2:
-   l2.append(m.end()-m.start())
-if max(l1)==max(l2):
-   print('MATCH')
+import sys
+s1 = input()
+s2 = input()
+for i in s1:
+    if i not in ['A','G','C','T']:
+        print('mismatch')
+        sys.exit(1)
+L1 = list(s1)
+L2 = list(s2)
+l = len(L1)
+match = True
+for i in range(0,l-3):
+    x1 = L1[i]
+    x2 = L1[i+1]
+    x3 = L1[i+2]
+    x4 = L1[i+3]
+    y1 = L2[i]
+    y2 = L2[i+1]
+    y3 = L2[i+2]
+    y4 = L2[i+3]
+    if x1 + x2 + x3 + x4 == 'AGCT':
+        if y1 + y2 + y3 + y4 != 'AGCT':
+            match = False
+if match:
+    print('MATCH')
 else:
-   print('MISMATCH')
+    print('MISMATCH')
